@@ -43,6 +43,24 @@ socketio-chat/
 3. Follow the setup instructions in the `Week5-Assignment.md` file
 4. Complete the tasks outlined in the assignment
 
+## Quick run (this repo)
+
+This repository includes a minimal static client served from the server for quick testing. To run locally:
+
+1. Install server dependencies and start the server:
+
+```
+cd server
+npm install
+npm start
+```
+
+2. Open your browser at http://localhost:5000 to use the chat UI. Open multiple tabs to simulate multiple users.
+
+Notes:
+- The server also exposes `GET /api/messages` and `GET /api/users` for simple testing.
+- The static client lives at `server/public` and demonstrates core features: global chat, private messages, typing indicator, file/image sharing (sent as base64), and simple read receipts.
+
 ## Files Included
 
 - `Week5-Assignment.md`: Detailed assignment instructions

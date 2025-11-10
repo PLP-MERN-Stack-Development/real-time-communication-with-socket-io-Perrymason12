@@ -37,7 +37,12 @@ export const useSocket = () => {
 
   // Send a message
   const sendMessage = (message) => {
-    socket.emit('send_message', { message });
+    // Accept either a simple string or a prepared message object { message, file?, isPrivate? }
+    if (message && typeof message === 'object' && (message.message !== undefined || message.file !== undefined)) {
+      socket.emit('send_message', message);
+    } else {
+      socket.emit('send_message', { message });
+    }
   };
 
   // Send a private message

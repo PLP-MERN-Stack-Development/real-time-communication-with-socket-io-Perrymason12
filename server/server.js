@@ -93,6 +93,19 @@ io.on('connection', (socket) => {
     socket.emit('private_message', messageData);
   });
 
+  // Handle message read receipts
+  socket.on('message_read', ({ messageId }) => {
+    const msg = messages.find((m) => m.id === messageId);
+    if (msg && msg.senderId) {
+      // mark message as read by this reader
+      msg.readBy = msg.readBy || [];
+      if (!msg.readBy.includes(socket.id)) msg.readBy.push(socket.id);
+
+      // notify original sender that their message was read
+      io.to(msg.senderId).emit('message_read', { messageId: msg.id, readerId: socket.id });
+    }
+  });
+
   // Handle disconnection
   socket.on('disconnect', () => {
     if (users[socket.id]) {
