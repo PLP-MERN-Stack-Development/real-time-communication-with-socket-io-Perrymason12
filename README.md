@@ -119,10 +119,6 @@ See `server/server.js` and `client/src/socket/socket.js` for the full event life
 
 All core & advanced requirements from the assignment are covered and manually verified.
 
-## 📸 Screenshots & Deployment (optional)
-
-- Add screenshots or screencasts showing multi-room chat, read receipts, file sharing, etc.
-- If deployed, include live URLs for the server/client and update the `.env` values accordingly.
 
 ## 🙌 Acknowledgements
 
